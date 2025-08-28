@@ -7,7 +7,7 @@ from crop_trim import crop_trim
 
 st.set_page_config(page_title="Video Processing", layout="wide", page_icon="data/image.jpg")
 
-st.title('Video Processing - File Browser')
+st.title('Video Processing')
 
 def get_video_files_tree(root_path):
     """Get hierarchical structure of video files"""
@@ -130,13 +130,12 @@ if st.session_state.processing:
     try:
         progress_container = st.empty()
         
-        with st.spinner(f"Processing {len(selected_files)} files..."):
-            if processing_type == 'Crop':
-                crop(selected_files)
-            elif processing_type == 'Trim':
-                trim(selected_files)
-            elif processing_type == 'Crop and Trim':
-                crop_trim(selected_files)
+        if processing_type == 'Crop':
+            crop(selected_files)
+        elif processing_type == 'Trim':
+            trim(selected_files)
+        elif processing_type == 'Crop and Trim':
+            crop_trim(selected_files)
         
         
         col_back1, col_back2, col_back3 = st.columns([1, 2, 1])

@@ -148,7 +148,7 @@ def crop(temp_file_paths):
         frame_time = st.sidebar.slider(
             "Select time (seconds)",
             min_value=0.0,
-            max_value=duration,
+            max_value=duration - 1,
             value=st.session_state[frame_key],
             step=0.1,
             key=f"slider_{selected_video_name}"
